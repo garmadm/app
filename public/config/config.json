@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x23256e69d75d5c3257903ecb48cadd140ec3e706",
+  "SCAN_LINK": "https://etherscan.io/address/0x23256e69d75d5c3257903ecb48cadd140ec3e706",
+  "NETWORK": {
+    "NAME": "ETH",
+    "SYMBOL": "ETH",
+    "ID": 1
+  },
+  "NFT_NAME": "BULLY APES",
+  "SYMBOL": "BULLY",
+  "MAX_SUPPLY": 5555,
+  "WEI_COST": 50000000000000000,
+  "DISPLAY_COST": 0.05,
+  "GAS_LIMIT": 287000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/bullyapes",
+  "SHOW_BACKGROUND": true
+}
