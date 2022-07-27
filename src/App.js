@@ -4,7 +4,7 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-
+import CountUp from 'react-countup';
 
 
 var freemint = 50; // Указывать число бесплатных минтов
@@ -89,7 +89,7 @@ export const StyledRoundButton = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
+}F
 :hover {
   box-shadow: rgba(0, 0, 0, .3) 10px 13px 18px -1px;
   transform: translate3d(0, 7px, 0);
@@ -164,6 +164,8 @@ function App() {
   });
 
  var zaka = data.totalSupply;
+ let ci = data.totalSupply;
+
 
   var first = "/config/config.json" 
 
@@ -256,7 +258,6 @@ function App() {
 
 
 
-
   return (
     <s.Screen>
       <s.Container
@@ -297,7 +298,9 @@ function App() {
                 
               }}
             >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              
+              <CountUp delay={0} start ={623} end={688} preserveValue ={true} duration={50} preserveValue={true} />
+ / 888
             </s.TextTitle>
             <s.TextDescription
               style={{
