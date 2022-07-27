@@ -168,10 +168,8 @@ function App() {
 
   var first = "/config/config.json" 
 
-  for (let i = 0; i < 20; i++) {
-    let vaka = Math.floor(Math.random() * 2);
-    ci = ci + vaka;
-
+  for (let i = 0; i < 300; i++) {
+    ci = ci + 1;
   }
 
 
