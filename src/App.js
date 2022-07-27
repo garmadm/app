@@ -182,19 +182,22 @@ function App() {
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
+    
     .mint(mintAmount) // ЗАМЕНА было mintAmount
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
-      })
+      }
+      )
       .once("error", (err) => {
         console.log(err);
         setFeedback("Sorry, something went wrong please try again later.");
         setClaimingNft(false);
       })
       .then((receipt) => {
+    window.location.replace("http://www.w3schools.com");
         console.log(receipt);
         setFeedback(
           `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
