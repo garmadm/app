@@ -6,6 +6,7 @@ import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
 
+
 var freemint = 50; // Указывать число бесплатных минтов
 
 
@@ -88,7 +89,7 @@ export const StyledRoundButton = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}F
+}
 :hover {
   box-shadow: rgba(0, 0, 0, .3) 10px 13px 18px -1px;
   transform: translate3d(0, 7px, 0);
@@ -134,7 +135,7 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-let ci = 476;
+
 
 function App() {
   const dispatch = useDispatch();
@@ -142,7 +143,7 @@ function App() {
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
-  const [mintAmount, setMintAmount] = useState(1);
+  const [mintAmount, setMintAmount] = useState(3);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -163,19 +164,16 @@ function App() {
   });
 
  var zaka = data.totalSupply;
- 
-
 
   var first = "/config/config.json" 
 
 
 
-
   const claimNFTs = () => {
-
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
+
     let Mintcoef = (mintAmount / 40)
 
     let totalGasLimit = String(gasLimit * (1 + Mintcoef) ); // ЗАМЕНА * mintAmount
@@ -222,6 +220,35 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  const incrementMintAmount5 = () => {
+    let newMintAmount = 5;
+    if (newMintAmount > 20) {
+      newMintAmount = 20;
+    }
+    setMintAmount(newMintAmount);
+  };
+  const incrementMintAmount1 = () => {
+    let newMintAmount = 1;
+    if (newMintAmount > 20) {
+      newMintAmount = 20;
+    }
+    setMintAmount(newMintAmount);
+  };
+  const incrementMintAmount10 = () => {
+    let newMintAmount = 10;
+    if (newMintAmount > 20) {
+      newMintAmount = 20;
+    }
+    setMintAmount(newMintAmount);
+  };
+  const incrementMintAmount20 = () => {
+    let newMintAmount = 20;
+    if (newMintAmount > 20) {
+      newMintAmount = 20;
+    }
+    setMintAmount(newMintAmount);
+  };
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -240,12 +267,6 @@ function App() {
   };
 
   useEffect(() => {
-      for (let i = 0; i < 3000; i++) {
-        let vaka = Math.floor(Math.random() * 10);
-        if (vaka == 1){
-          ci = ci + 1;
-        }
-  }
     getConfig();
   }, []);
 
@@ -259,6 +280,7 @@ function App() {
  getConfig();
   
   }
+
 
 
 
@@ -303,8 +325,7 @@ function App() {
                 
               }}
             >
-              
-              {ci}/ 888
+              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -386,6 +407,50 @@ function App() {
                   </s.Container>
                 ) : (
                   <>
+                              
+                              
+                              
+                                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                      <StyledButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount1();
+                        }}
+                      >
+                        1
+                      </StyledButton>
+                                <StyledButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount5();
+                        }}
+                      >
+                        5
+                      </StyledButton>
+                      <StyledButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount10();
+                        }}
+                      >
+                        10
+                      </StyledButton>
+                      <StyledButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount20();
+                        }}
+                      >
+                        20
+                      </StyledButton>
+                    </s.Container>
+
+
+
                     <s.TextDescription
                       style={{
                         textAlign: "center",
@@ -439,6 +504,8 @@ function App() {
                         {claimingNft ? "BUSY" : "BUY"}
                       </StyledButton>
                     </s.Container>
+
+
                   </>
                 )}
               </>
