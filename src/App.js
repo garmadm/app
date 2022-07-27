@@ -171,7 +171,7 @@ function App() {
   if (vaka == 1){
     ci = ci + 1;
   }
-
+  ci = ci + 1;
 
   const claimNFTs = () => {
 
