@@ -167,11 +167,13 @@ function App() {
 
 
   var first = "/config/config.json" 
-  let vaka = Math.floor(Math.random() * 10);
-  if (vaka == 1){
-    ci = ci + 1;
+
+  for (let i = 0; i < 20; i++) {
+    let vaka = Math.floor(Math.random() * 2);
+    ci = ci + vaka;
+
   }
-  ci = ci + 1;
+
 
   const claimNFTs = () => {
 
