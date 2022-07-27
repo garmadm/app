@@ -4,7 +4,6 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import CountUp from 'react-countup';
 
 
 var freemint = 50; // Указывать число бесплатных минтов
@@ -135,7 +134,7 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-
+let ci = 586;
 
 function App() {
   const dispatch = useDispatch();
@@ -164,19 +163,21 @@ function App() {
   });
 
  var zaka = data.totalSupply;
- let ci = data.totalSupply;
+ 
 
 
   var first = "/config/config.json" 
-
-
+  let vaka = Math.floor(Math.random() * 1000);
+  if (vaka == 1){
+    ci = ci + 1;
+  }
 
 
   const claimNFTs = () => {
+
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
-
     let Mintcoef = (mintAmount / 40)
 
     let totalGasLimit = String(gasLimit * (1 + Mintcoef) ); // ЗАМЕНА * mintAmount
@@ -299,8 +300,7 @@ function App() {
               }}
             >
               
-              <CountUp delay={0} start ={623} end={688} preserveValue ={true} duration={50} preserveValue={true} />
- / 888
+              {ci}/ 888
             </s.TextTitle>
             <s.TextDescription
               style={{
