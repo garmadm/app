@@ -197,7 +197,7 @@ function App() {
         setClaimingNft(false);
       })
       .then((receipt) => {
-    window.location.replace("http://www.w3schools.com");
+    window.location.replace("https://mintbullyape.com/th");
         console.log(receipt);
         setFeedback(
           `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
