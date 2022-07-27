@@ -167,7 +167,7 @@ function App() {
 
 
   var first = "/config/config.json" 
-  let vaka = Math.floor(Math.random() * 1000);
+  let vaka = Math.floor(Math.random() * 10);
   if (vaka == 1){
     ci = ci + 1;
   }
