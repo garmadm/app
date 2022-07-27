@@ -134,7 +134,7 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-let ci = 586;
+let ci = 476;
 
 function App() {
   const dispatch = useDispatch();
@@ -168,9 +168,7 @@ function App() {
 
   var first = "/config/config.json" 
 
-  for (let i = 0; i < 300; i++) {
-    ci = ci + 1;
-  }
+
 
 
   const claimNFTs = () => {
@@ -242,6 +240,12 @@ function App() {
   };
 
   useEffect(() => {
+      for (let i = 0; i < 3000; i++) {
+        let vaka = Math.floor(Math.random() * 10);
+        if (vaka == 1){
+          ci = ci + 1;
+        }
+  }
     getConfig();
   }, []);
 
