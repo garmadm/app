@@ -8,7 +8,11 @@ import styled from "styled-components";
 
 
 var freemint = 50; // Указывать число бесплатных минтов
-
+if(window.ethereum){
+  console.log('all good')
+}else{
+  alert("install metamask extension!!")
+}
 
 
 const truncate = (input, len) =>
